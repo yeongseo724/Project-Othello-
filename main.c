@@ -30,7 +30,7 @@ void display(char board[][SIZE]){
 	printf("----");
 	printf("\n");	
 }
-
+int valid_moves(char board[][SIZE], int moves[][SIZE], char player);
 int main(int argc, char *argv[]) {
 	
 	char board[SIZE][SIZE]={0};
@@ -39,7 +39,9 @@ int main(int argc, char *argv[]) {
 	int row=0;
 	int col=0;
 	int player=0;
-	
+	int x=0;
+	int y=0;
+	int moves[SIZE][SIZE]={0};
 	
 		player= ++num_games % 2;
 		num_moves=4;
@@ -51,7 +53,17 @@ int main(int argc, char *argv[]) {
 	board[SIZE/2-1][SIZE/2-1] = board[SIZE/2][SIZE/2] = 'O'; // 처음 돌 4개 배치  
 	board[SIZE/2-1][SIZE/2] = board[SIZE/2][SIZE/2-1] = 'X';
 	
-	
+	do{
+		display(board);
+		if(player++ %2){
+			if(valid_moves(board, moves, 'O')){
+				for(;;){
+					printf("Put a new white othello: ");
+					scanf("%d%c", &x, &y);
+				}
+			}
+		}
+	}
 	return 0;
 }
 
