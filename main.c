@@ -17,3 +17,31 @@ int main(int argc, char *argv[]) {
 	board[SIZE/2-1][SIZE/2] = board[SIZE/2][SIZE/2-1] = 'X';
 	return 0;
 }
+
+//오셀로 틀 만들기  
+void display(char board[][SIZE]){
+	int row=0;
+	int col=0;
+	char col_label='0';
+	
+	printf("\n");
+	for(col=0;col<SIZE;col++)
+		printf("  %c", col_label+col);
+		printf("\n");
+		
+	for(row=0;row<SIZE;row++)
+	{
+	printf("  -");
+		for(col=0;col<SIZE;col++)
+			printf("----");
+			printf("\n%2d|", row+1);
+			
+		for(col=0;col<SIZE;col++)
+			printf("%c |", board[row][col]);
+			printf("\n");	
+		}	
+	printf("  -");
+	for(col=0;col<SIZE;col++)
+	printf("----");
+	printf("\n");	
+}
