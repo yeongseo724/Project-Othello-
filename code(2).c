@@ -1,22 +1,27 @@
-//ÃÖÁ¾ ½ÂÀÚ
+#define SIZE 6
+#include <stdio.h>
+#include <stdlib.h>
+
+//final winner
 char Winner(char board[][SIZE])
-{
+{	int i=0;
+	int j=0;
 	int white=0;
 	int black=0;
 	
-	for(int i=0;i<SIZE;i++){
-		for (int j=0;j<SIZE;j++){
-			if(board[i][j]==White){
+	for(i=0;i<SIZE;i++){
+		for(int j=0;j<SIZE;j++){
+			if(board[i][j]==white){
 				white +=1;
 			}
-			else if(board[i][j]==Black){
+			else if(board[i][j]==black){
 				black +=1;
 			}
 			continue;
 		}
 	}
-	printf("White score: %d\n", white);
-	printf("Black score: %d\n", black);
+	printf("white score: %d\n", white);
+	printf("black score: %d\n", black);
 	
 	if(white>black){
 		return white;
@@ -24,5 +29,5 @@ char Winner(char board[][SIZE])
 	else if(white<black){
 		return black;
 	}
-	return EMPTY;
+	return 0;
  } 
